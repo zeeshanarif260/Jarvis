@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#05070d">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Jarvis</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>J.A.R.V.I.S.</h1>
+  <button id="settingsBtn" aria-label="Settings">⚙</button>
+</header>
+
+<main id="log" aria-live="polite"></main>
+
+<div id="core" class="idle" aria-hidden="true"><div class="ring"></div><div class="ring r2"></div><div class="dot"></div></div>
+<p id="state">Tap the core and speak</p>
+
+<form id="composer">
+  <input id="text" placeholder="Or type a message…" autocomplete="off">
+  <button type="submit">Send</button>
+</form>
+
+<dialog id="settings">
+  <form method="dialog">
+    <h2>Settings</h2>
+    <label>Anthropic API key
+      <input id="key" type="password" placeholder="sk-ant-…" autocomplete="off">
+    </label>
+    <small>Stored only on this device. Get one at console.anthropic.com.</small>
+    <label>Model
+      <select id="model">
+        <option value="claude-sonnet-5-5">Sonnet 5.5 (fast, recommended)</option>
+        <option value="claude-opus-5-5">Opus 5.5 (smartest)</option>
+        <option value="claude-haiku-4-5-20251001">Haiku 4.5 (cheapest)</option>
+      </select>
+    </label>
+    <label class="row"><input id="speak" type="checkbox" checked> Speak replies aloud</label>
+    <label class="row"><input id="handsfree" type="checkbox"> Keep listening after each reply</label>
+    <div class="actions">
+      <button type="button" id="clear">Clear chat</button>
+      <button value="ok">Save</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="app.js"></script>
+</body>
+</html>

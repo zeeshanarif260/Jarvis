@@ -1,0 +1,35 @@
+:root{--bg:#05070d;--fg:#d8f3ff;--accent:#2ec5ff;--muted:#6a8796;--panel:#0d1420}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:radial-gradient(circle at 50% 30%,#0b1a2a,var(--bg) 70%);color:var(--fg);font:16px/1.45 system-ui,-apple-system,sans-serif;display:flex;flex-direction:column;padding:env(safe-area-inset-top) 16px calc(env(safe-area-inset-bottom) + 12px)}
+header{display:flex;justify-content:space-between;align-items:center;padding:12px 0}
+h1{font-size:18px;letter-spacing:.3em;margin:0;color:var(--accent)}
+header button{background:none;border:0;color:var(--fg);font-size:22px}
+#log{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:10px;padding:8px 0}
+.msg{max-width:85%;padding:10px 14px;border-radius:16px;white-space:pre-wrap;word-wrap:break-word}
+.user{align-self:flex-end;background:#13314a}
+.bot{align-self:flex-start;background:var(--panel);border:1px solid #16324a}
+.err{align-self:center;color:#ff8a8a;font-size:14px}
+#core{position:relative;width:120px;height:120px;margin:8px auto 4px;cursor:pointer}
+.ring,.dot{position:absolute;inset:0;border-radius:50%}
+.ring{border:2px solid var(--accent);opacity:.5;box-shadow:0 0 20px var(--accent)}
+.r2{inset:18px;opacity:.8}
+.dot{inset:44px;background:var(--accent);box-shadow:0 0 30px var(--accent)}
+#core.listening .ring{animation:pulse 1s infinite}
+#core.thinking .ring{animation:spin 1.2s linear infinite;border-style:dashed}
+#core.speaking .dot{animation:pulse .5s infinite alternate}
+@keyframes pulse{50%{transform:scale(1.12);opacity:1}}
+@keyframes spin{to{transform:rotate(360deg)}}
+#state{text-align:center;color:var(--muted);margin:4px 0 10px;font-size:14px}
+#composer{display:flex;gap:8px}
+#composer input{flex:1;min-width:0}
+input,select{background:var(--panel);color:var(--fg);border:1px solid #1f3a52;border-radius:10px;padding:10px;font:inherit;width:100%}
+button{background:var(--accent);color:#001018;border:0;border-radius:10px;padding:10px 14px;font:inherit;font-weight:600}
+dialog{background:var(--panel);color:var(--fg);border:1px solid #1f3a52;border-radius:16px;width:min(420px,92vw)}
+dialog::backdrop{background:#000a}
+dialog label{display:block;margin:12px 0 4px}
+dialog .row{display:flex;gap:8px;align-items:center}
+dialog .row input{width:auto}
+small{color:var(--muted)}
+.actions{display:flex;justify-content:space-between;margin-top:16px}
+#clear{background:#26323e;color:var(--fg)}

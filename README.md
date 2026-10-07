@@ -10,4 +10,4 @@ A voice assistant you run from your phone's browser. Tap the glowing core, speak
 ## Files
 - `index.html`, `style.css`, `app.js`: the app (Web Speech API for voice, Claude Messages API for answers)
 - `sw.js`, `manifest.webmanifest`: makes it installable
-- `.github/workflows/pages.yml`: publishes to GitHub Pages on every push to `main`
+- Published by GitHub Pages from the `main` branch (Settings → Pages → Deploy from a branch)
